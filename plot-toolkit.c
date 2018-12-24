@@ -32,10 +32,14 @@ int write2D(char *dir, float x, float y){
 	{
 		fprintf(fp, "%f %f\n", x, y);//print in opened file.
 		return 1;
+		fclose(fp);
+
 	}
 	else
+	{
+		fclose(fp);
 		return 0;
-	fclose(fp);
+	}
 }
 
 int read3D(char *dir, float Result[3][Max_size]){
@@ -60,9 +64,12 @@ int write3D(char *dir, float x, float y, float z){
 	if(fp != NULL)
 	{
 		fprintf(fp, "%f %f %f\n", x, y, z);
+		fclose(fp);
 		return 1;
 	}
 	else
+	{
+		fclose(fp);
 		return 0;
-	fclose(fp);
+	}
 }
